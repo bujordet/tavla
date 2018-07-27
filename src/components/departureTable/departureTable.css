@@ -20,19 +20,6 @@
     text-align: center
 }
 
-.tile-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #272727;
-    color: white;
-    width: 17%;
-    padding: 2.5% 1.6% 2.5% 1.6%;
-    margin: 2%;
-    height: fit-content;
-    align-self: center;
-}
-
 @media only screen
   and (min-device-width: 768px)
   and (max-device-width: 1024px)
@@ -42,10 +29,6 @@
           width: 23%;
       }
 
-}
-
-.tile-container h2{
-    font-size: 1.5rem;
 }
 
 .table-container{

@@ -1,28 +1,27 @@
 import React from 'react'
 import {
-    getIcon, groupBy, isVisible, getTransportHeaderIcon,
+    getIcon, isVisible,
 } from '../../utils'
 
 
-const DepartureTile = ({ stopPlace, routes, hiddenRoutes }) => {
-    const { departures, name, id } = stopPlace
-    const groupedDepartures = groupBy(departures, 'route')
-
-    if (!isVisible(groupedDepartures, hiddenRoutes)) {
+const DepartureTile = ({
+    quayID, routes, hiddenRoutes, groupedByRoute, header, subHeader,
+}) => {
+    if (!isVisible(groupedByRoute, hiddenRoutes)) {
         return null
     }
     return (
-        <div className="tile-container" key={id}>
+        <div className="tile-container" key={quayID}>
             <div className="stop-header">
-                { getTransportHeaderIcon(stopPlace.departures, { height: 90, width: 90 }) }
-                <h2>{name}</h2>
+                <h2>{header}</h2>
+                <h4>{subHeader}</h4>
             </div>
             <div>
                 {
                     routes
                         .filter((route) => !hiddenRoutes.includes(route))
                         .map((route) => {
-                            const routeData = groupedDepartures[route]
+                            const routeData = groupedByRoute[route]
                             const routeType = routeData[0].type
                             return (
                                 <div key={route}>

@@ -37,7 +37,9 @@ class DepartureBoard extends React.Component {
     }
 
     getLineData = departure => {
-        const { expectedDepartureTime, destinationDisplay, serviceJourney } = departure
+        const {
+            expectedDepartureTime, destinationDisplay, serviceJourney, quay,
+        } = departure
         const { line } = serviceJourney.journeyPattern
         const departureTime = moment(expectedDepartureTime)
         const minDiff = departureTime.diff(moment(), 'minutes')
@@ -46,6 +48,7 @@ class DepartureBoard extends React.Component {
             type: line.transportMode,
             time: this.formatDeparture(minDiff, departureTime),
             route: line.publicCode + ' '+ destinationDisplay.frontText,
+            quay: quay.id,
         }
     }
 
