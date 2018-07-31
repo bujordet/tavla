@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+html{
+    font-size: calc(9px + (36 - 12) * ((100vw - 800px) / (3800 - 800)));
+}
+
 h1 {
     font-weight: 600;
 }
